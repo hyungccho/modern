@@ -10,12 +10,12 @@ const SessionReducer = function(state = _nullAccount, action) {
   switch(action.type) {
     case SessionConstants.RECEIVE_CURRENT_ACCOUNT:
       const currentAccount = action.account.response;
-      return merge({}, _nullAccount, { currentAccount });
+      return merge({}, state, { currentAccount });
     case SessionConstants.LOGOUT:
-      return merge({}, _nullAccount);
+      return merge({}, state);
     case SessionConstants.RECEIVE_ERRORS:
       const errors = action.errors;
-      return merge({}, _nullAccount, { errors });
+      return merge({}, state, { errors });
     default:
       return state;
   }

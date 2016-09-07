@@ -16,15 +16,15 @@ class AppRouter extends React.Component {
   }
 
   _ensureLoggedIn (nextState, replace) {
-    const currentUser = this.props.currentUser;
-    if (!currentUser) {
+    const currentAccount = this.props.currentAccount;
+    if (!currentAccount) {
       replace('/login');
     }
   }
 
   _redirectIfLoggedIn (nextState, replace) {
-    const currentUser = this.props.currentUser;
-    if (currentUser) {
+    const currentAccount = this.props.currentAccount;
+    if (currentAccount) {
       replace('/');
     }
   }
@@ -34,8 +34,15 @@ class AppRouter extends React.Component {
       <Router history={ hashHistory }>
         <Route path="/" component={ App }>
           <IndexRoute component={ Home } />
-          <Route path="/login" component={ SessionContainer } onEnter={ this._redirectIfLoggedIn }/>
-          <Route path="/signup" component={ SessionContainer } onEnter={ this._redirectIfLoggedIn }/>
+          <Route path="/login"
+            component={ SessionContainer }
+            onEnter={ this._redirectIfLoggedIn }
+          />
+        
+          <Route path="/signup"
+            component={ SessionContainer }
+            onEnter={ this._redirectIfLoggedIn }
+          />
         </Route>
       </Router>
     );

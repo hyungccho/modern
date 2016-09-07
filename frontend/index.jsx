@@ -12,8 +12,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('root');
   let store;
   
-  if (window.currentUser) {
-    const initialState = { session: { currentUser: window.currentUser } };
+  if (window.currentAccount) {
+    const initialState = { session: { currentAccount: window.currentAccount } };
     store = configureStore(initialState);
   } else {
     store = configureStore();
