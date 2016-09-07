@@ -9,7 +9,7 @@ const _nullAccount = Object.freeze({
 const SessionReducer = function(state = _nullAccount, action) {
   switch(action.type) {
     case SessionConstants.RECEIVE_CURRENT_ACCOUNT:
-      const currentAccount = action.currentAccount;
+      const currentAccount = action.account.response;
       return merge({}, _nullAccount, { currentAccount });
     case SessionConstants.LOGOUT:
       return merge({}, _nullAccount);

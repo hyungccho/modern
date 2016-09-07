@@ -9,8 +9,16 @@ import Root from 'components/root'
 
 
 document.addEventListener('DOMContentLoaded', () => {
-  let store = configureStore();
   const root = document.getElementById('root');
+  let store;
+  
+  if (window.currentUser) {
+    const initialState = { session: { currentUser: window.currentUser } };
+    store = configureStore(initialState);
+  } else {
+    store = configureStore();
+  }
+  
   window.Store = store;
   
   ReactDOM.render(<Root store={ store } />, root)
