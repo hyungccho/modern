@@ -27,8 +27,8 @@ class SessionForm extends React.Component {
 
 	handleSubmit (e) {
 		e.preventDefault();
-		const email = this.state;
-		this.props.processForm({ email });
+		const account = this.state;
+		this.props.processForm({ account });
 	}
 
 	navLink () {

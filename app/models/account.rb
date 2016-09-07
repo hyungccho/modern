@@ -1,7 +1,10 @@
 class Account < ActiveRecord::Base
   attr_reader :password
 
-  include AccountLogic::Validations
+  validates :email, presence: true
+  validates :password_digest, presence: { message: "Password can't be blank" }
+  validates :password, length: { minimum: 6, allow_nil: true }
+  validates :session_token, presence: true
 
   after_initialize :ensure_session_token
 

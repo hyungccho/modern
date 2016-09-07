@@ -6,16 +6,16 @@ export const SessionConstants = {
   RECEIVE_ERRORS: 'RECEIVE_ERRORS'
 };
 
-export const logIn = (account) => ({
+export const login = (account) => ({
   type: SessionConstants.LOGIN,
   account
 });
 
-export const logOut = () => ({
+export const logout = () => ({
   type: SessionConstants.LOGOUT
 });
 
-export const signUp = (account) => ({
+export const signup = (account) => ({
   type: SessionConstants.SIGNUP,
   account
 });
