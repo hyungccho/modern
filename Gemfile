@@ -25,6 +25,8 @@ gem 'binding_of_caller'
 gem 'pry-rails'
 gem 'annotate'
 gem 'bcrypt'
+gem 'active_model_serializers'
+gem 'rocket_pants'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

@@ -1,20 +1,20 @@
-import { receiveCurrentUser, receiveErrors } from '../actions/session_actions';
+import { receiveCurrentAccount, receiveErrors } from '../actions/session_actions';
 
-export const login = function (user, success, error) {
+export const login = function (account, success, error) {
 	$.ajax({
 		method: 'POST',
 		url: '/api/session',
-		data: user,
+		data: account,
 		success,
 		error
 	});
 };
 
-export const signup = function (user, success, error) {
+export const signup = function (account, success, error) {
 	$.ajax({
 		method: 'POST',
-		url: '/api/user',
-		data: user,
+		url: '/api/account',
+		data: account,
 		success,
 		error
 	});

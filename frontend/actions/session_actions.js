@@ -2,27 +2,27 @@ export const SessionConstants = {
   LOGIN: 'LOGIN',
   LOGOUT: 'LOGOUT',
   SIGNUP: 'SIGNUP',
-  RECEIVE_CURRENT_USER: 'RECEIVE_CURRENT_USER',
+  RECEIVE_CURRENT_ACCOUNT: 'RECEIVE_CURRENT_ACCOUNT',
   RECEIVE_ERRORS: 'RECEIVE_ERRORS'
 };
 
-export const logIn = (user) => ({
+export const logIn = (account) => ({
   type: SessionConstants.LOGIN,
-  user
+  account
 });
 
 export const logOut = () => ({
   type: SessionConstants.LOGOUT
 });
 
-export const signUp = (user) => ({
+export const signUp = (account) => ({
   type: SessionConstants.SIGNUP,
-  user
+  account
 });
 
-export const receiveCurrentUser = (user) => ({
-  type: SessionConstants.RECEIVE_CURRENT_USER,
-  user
+export const receiveCurrentAccount = (account) => ({
+  type: SessionConstants.RECEIVE_CURRENT_ACCOUNT,
+  account
 });
 
 export const receiveErrors = (errors) => ({
