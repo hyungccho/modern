@@ -1,9 +1,9 @@
 import { receiveCurrentAccount,
          receiveErrors,
          SessionConstants
-       } from '../actions/session_actions';
+       } from 'actions/session_actions';
 
-import { login, signup, logout } from '../utils/session_utils';
+import { login, signup, logout } from 'utils/session_utils';
 
 const SessionMiddleware = ({ getState, dispatch }) => next => action => {
   const successCallback = account => dispatch(receiveCurrentAccount(account));

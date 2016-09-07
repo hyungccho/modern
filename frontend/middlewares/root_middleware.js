@@ -1,5 +1,5 @@
 import { applyMiddleware } from 'redux';
-import SessionMiddleware from './session_middleware';
+import SessionMiddleware from 'middlewares/session_middleware';
 
 const RootMiddleware = applyMiddleware(
   SessionMiddleware

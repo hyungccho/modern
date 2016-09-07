@@ -1,4 +1,4 @@
-import { SessionConstants } from '../actions/session_actions';
+import { SessionConstants } from 'actions/session_actions';
 import merge from 'lodash/merge';
 
 const _nullAccount = Object.freeze({
