@@ -1,0 +1,11 @@
+@import 'compass';
+
+@include font-face("Themify", font-files("themify.woff", "themify.ttf", "themify.svg"), "themify.eot");
+
+@mixin themify {
+  font-family: Themify;
+}
+
+.themify {
+  @include themify;
+}

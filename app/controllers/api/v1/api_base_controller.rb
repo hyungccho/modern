@@ -1,7 +1,10 @@
 module Api
   module V1
     class ApiBaseController < RocketPants::Base
-      helper_method :current_account, :logged_in?
+      helper_method :current_account,
+                    :logged_in?,
+                    :basic_success_message,
+                    :basic_failure_message
 
       def login!(account)
         account.reset_session_token!
@@ -25,7 +28,17 @@ module Api
       end
 
       def require_logged_in
-        render json: { base: ['Invalid credentials'] }, status: 401 unless current_account
+        unless current_account
+          render json: { base: ['Invalid credentials'] }, status: 401
+        end
+      end
+
+      def basic_success_message
+        { success: true }
+      end
+
+      def basic_failure_message
+        { success: false }
       end
     end
   end

@@ -1,3 +1,12 @@
+# == Schema Information
+#
+# Table name: accounts
+#
+#  id              :integer          not null, primary key
+#  email           :string
+#  password_digest :string
+#  session_token   :string           not null
+#
 class Account < ActiveRecord::Base
   attr_reader :password
 
@@ -7,6 +16,8 @@ class Account < ActiveRecord::Base
   validates :session_token, presence: true
 
   after_initialize :ensure_session_token
+
+  has_many :businesses, dependent: :destroy
 
   def self.find_by_credentials(email, password)
     account = Account.find_by_email(email)

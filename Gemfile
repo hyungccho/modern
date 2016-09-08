@@ -27,6 +27,8 @@ gem 'annotate'
 gem 'bcrypt'
 gem 'active_model_serializers'
 gem 'rocket_pants'
+gem 'compass-rails'
+gem 'bootstrap-sass'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
