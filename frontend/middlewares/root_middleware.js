@@ -1,8 +1,12 @@
 import { applyMiddleware } from 'redux';
-import SessionMiddleware from 'middlewares/session_middleware';
+
+// Middlewares
+import SessionMiddleware from 'middlewares/session/session_middleware';
+import BusinessMiddleware from 'middlewares/businesses/business_middleware';
 
 const RootMiddleware = applyMiddleware(
-  SessionMiddleware
+  SessionMiddleware,
+  BusinessMiddleware
 );
 
 export default RootMiddleware;

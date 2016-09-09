@@ -1,4 +1,4 @@
-import { SessionConstants } from 'actions/session_actions';
+import { SessionConstants } from 'actions/session/session_actions';
 import merge from 'lodash/merge';
 
 const _nullAccount = Object.freeze({
@@ -6,8 +6,8 @@ const _nullAccount = Object.freeze({
   errors: []
 });
 
-const SessionReducer = function(state = _nullAccount, action) {
-  switch(action.type) {
+const SessionReducer = (state = _nullAccount, action) => {
+  switch (action.type) {
     case SessionConstants.RECEIVE_CURRENT_ACCOUNT:
       const currentAccount = action.account.response;
       return merge({}, state, { currentAccount });
