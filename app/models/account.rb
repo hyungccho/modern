@@ -17,7 +17,7 @@ class Account < ActiveRecord::Base
 
   after_initialize :ensure_session_token
 
-  has_many :businesses, dependent: :destroy
+  has_many :businesses
 
   def self.find_by_credentials(email, password)
     account = Account.find_by_email(email)
