@@ -8,12 +8,21 @@ export const BusinessConstants = {
   RECEIVE_BUSINESS_ERRORS: 'RECEIVE_BUSINESS_ERRORS'
 };
 
-export const createBusiness = (business) => {
-  action: BusinessConstants.CREATE_BUSINESS,
+export const createBusiness = (business) => ({
+  type: BusinessConstants.CREATE_BUSINESS,
   business
-};
+});
 
-export const receiveBusiness = (business) => {
-  action: BusinessConstants.RECEIVE_BUSINESS,
+export const receiveBusiness = (business) => ({
+  type: BusinessConstants.RECEIVE_BUSINESS,
   business
-};
+});
+
+export const receiveBusinesses = (businesses) => ({
+  type: BusinessConstants.RECEIVE_BUSINESSES,
+  businesses
+});
+
+export const requestBusinesses = () => ({
+  type: BusinessConstants.REQUEST_BUSINESSES
+});

@@ -1,5 +1,5 @@
 import { BusinessConstants } from 'actions/businesses/business_actions';
-import { merge } from 'lodash/merge';
+import merge from 'lodash/merge';
 
 const _nullBusinesses = Object.freeze({
   businesses: [],

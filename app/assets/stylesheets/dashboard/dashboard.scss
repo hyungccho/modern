@@ -1,0 +1,11 @@
+nav {
+  .dropdown {
+    cursor: pointer;
+  }
+  
+  .dropdown-menu {
+    a > i {
+      margin-right: 7px;
+    }
+  }
+}

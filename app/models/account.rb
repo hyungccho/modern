@@ -6,21 +6,23 @@
 #  email           :string
 #  password_digest :string
 #  session_token   :string           not null
+#  type            :string
+#  username        :string
 #
+
 class Account < ActiveRecord::Base
   attr_reader :password
 
   validates :email, presence: true
+  validates :username, presence: true
   validates :password_digest, presence: { message: "Password can't be blank" }
   validates :password, length: { minimum: 6, allow_nil: true }
   validates :session_token, presence: true
 
   after_initialize :ensure_session_token
 
-  has_many :businesses
-
-  def self.find_by_credentials(email, password)
-    account = Account.find_by_email(email)
+  def self.find_by_credentials(username, password)
+    account = Account.find_by_username(username)
     return unless account
     account.password?(password) ? account : nil
   end

@@ -2,7 +2,7 @@ import React from 'react';
 import SessionContainer from 'components/home/session/session_form'
 import { withRouter } from 'react-router';
 
-class Home extends React.Component {
+class Hero extends React.Component {
   constructor (props) {
     super(props)
     
@@ -28,4 +28,4 @@ class Home extends React.Component {
   }
 };
 
-export default withRouter(Home);
+export default withRouter(Hero);

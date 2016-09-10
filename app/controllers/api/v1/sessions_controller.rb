@@ -3,12 +3,12 @@ module Api
     class SessionsController < Api::V1::ApiBaseController
       def create
         @account = Account.find_by_credentials(
-          params[:account][:email],
+          params[:account][:username],
           params[:account][:password]
         )
 
         if @account.nil?
-          error! :unauthenticated, 'Invalid email/password combination'
+          error! :unauthenticated, 'Invalid username/password combination'
         else
           login!(@account)
           expose @account

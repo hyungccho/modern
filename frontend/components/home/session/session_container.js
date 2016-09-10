@@ -13,7 +13,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   const processForm = (formType === 'login') ? login : signup;
 
   return ({
-    processForm: account => dispatch(processForm(account)),
+    processForm: (account) => dispatch(processForm(account)),
     formType
   });
 };

@@ -7,3 +7,13 @@ export const createBusiness = (business, success, error) => {
     error
   });
 };
+
+export const requestBusinesses = (accountId, success, error) => {
+  $.ajax({
+    method: 'GET',
+    url: '/api/v1/businesses',
+    data: { account_id: accountId },
+    success,
+    error
+  })
+};

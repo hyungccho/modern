@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import AppRouter from 'router/router';
+import AppRouter from 'components/router/router';
 
 const mapStateToProps = state => ({
   currentAccount: state.session.currentAccount

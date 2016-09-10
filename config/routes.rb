@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
   root to: 'static_pages#root'
 
-  get '*path', to: 'static_pages#root'
-
   namespace :api, format: { default: :json } do
     namespace :v1 do
       resources :accounts, only: [:create, :update, :destroy]
@@ -10,4 +8,6 @@ Rails.application.routes.draw do
       resources :businesses, only: [:index, :create, :update, :destroy]
     end
   end
+
+  get '*path', to: 'static_pages#root'
 end

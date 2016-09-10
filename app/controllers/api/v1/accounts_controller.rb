@@ -2,11 +2,11 @@ module Api
   module V1
     class AccountsController < Api::V1::ApiBaseController
       def create
-        @account = Account.new(account_params)
+        @account = Accounts::Personal.new(account_params)
 
         if @account.save
           login!(@account)
-          expose @account
+          expose Accounts::Personal::Serializer.new(@account).serializable_hash
         else
           error! :invalid_resource, @account.errors
         end
@@ -21,7 +21,7 @@ module Api
       private
 
       def account_params
-        params.require(:account).permit(:email, :password)
+        params.require(:account).permit(:username, :email, :password)
       end
     end
   end
