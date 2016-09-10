@@ -9,7 +9,8 @@ import find from 'lodash/find';
 
 const navSections = {
   header: {
-    name: 'Modern'
+    // @todo: FIX THIS
+    name: 'Index'
   },
   sections: [
     {
