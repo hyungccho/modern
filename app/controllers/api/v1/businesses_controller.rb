@@ -1,8 +1,8 @@
 module Api
   module V1
     class BusinessesController < Api::V1::ApiBaseController
-      before_filter :load_account, only: [:index, :create, :update]
-      before_filter :load_business, only: [:update, :destroy]
+      before_action :load_account, only: [:index, :create, :update]
+      before_action :load_business, only: [:update, :destroy]
 
       def index
         expose @account.businesses,

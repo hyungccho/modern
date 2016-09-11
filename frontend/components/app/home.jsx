@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router';
 
 // Components
 import Sidebar from 'components/app/sidebar';
@@ -31,7 +32,9 @@ const navSections = {
         {
           type: 'dropdown',
           header: { icon: 'ti-settings', text: '', animation: 'btn-rotate' },
-          options: []
+          options: [
+            { icon: 'fa fa-sign-out', text: 'Log Out', action: 'log_out' }
+          ]
         }
       ]
     }
@@ -41,6 +44,7 @@ const navSections = {
 class Home extends React.Component {
   constructor (props) {
     super(props);
+    this.actionDispatcher = this.actionDispatcher.bind(this);
   }
   
   componentDidMount () {
@@ -50,38 +54,9 @@ class Home extends React.Component {
   actionDispatcher (action) {
     switch (action) {
       case 'create_business':
-        sweetAlert({
-          title: 'Create a Business',
-          label: 'Name',
-          input: 'text',
-          showCancelButton: true,
-          confirmButtonText: 'Create',
-          showLoaderOnConfirm: true,
-          allowOutsideClick: false,
-          preConfirm: (name) => {
-            return new Promise((resolve, reject) => {
-              setTimeout(() => {
-                let existingBusiness = find(this.props.businesses, (business) => {
-                  business.name.toLowerCase() == name.toLowerCase()
-                });
-                
-                if (existingBusinesses) {
-                  reject(`You already have a business with the name of ${name}`);
-                } else if (!name) {
-                  reject('Give your business a name!');
-                } else {
-                  resolve()
-                }
-              }, 2000);
-            });
-          }
-        }).then((name) => {
-          sweetAlert({
-            type: 'success',
-            title: 'Easy!',
-            html: `${name} was successfully created.`
-          });
-        });
+        break;
+      case 'log_out':
+        this.props.logout();
         break;
       default:
         console.log("I don't know how to handle this action");
@@ -102,4 +77,4 @@ class Home extends React.Component {
   }
 };
 
-export default Home;
+export default withRouter(Home);

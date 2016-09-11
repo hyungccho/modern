@@ -14,6 +14,20 @@ class AppRouter extends React.Component {
     super(props);
     this._ensureLoggedIn = this._ensureLoggedIn.bind(this);
     this._redirectIfLoggedIn = this._redirectIfLoggedIn.bind(this);
+    
+    this.routes = {
+      path: '/',
+      component: App,
+      indexRoute: {
+        component: Hero,
+        onEnter: this._redirectIfLoggedIn
+      },
+      childRoutes: [
+        { path: 'login', component: SessionContainer, onEnter: this._redirectIfLoggedIn },
+        { path: 'signup', component: SessionContainer, onEnter: this._redirectIfLoggedIn },
+        { path: 'home', component: HomeContainer, onEnter: this._ensureLoggedIn }
+      ]
+    };
   }
   
   _isLoggedIn () {
@@ -36,16 +50,7 @@ class AppRouter extends React.Component {
   render () {
     return(
       <Router history={ browserHistory }>
-        <Route path='/' component={ App }>
-          <IndexRoute component={ Hero } onEnter={ this._redirectIfLoggedIn } />
-          
-          // Session Routes
-          <Route path='/login' component={ SessionContainer } onEnter={ this._redirectIfLoggedIn } />
-          <Route path='/signup' component={ SessionContainer } onEnter={ this._redirectIfLoggedIn } />
-          
-          // Dashboard Routes
-          <Route path='/home' component={ HomeContainer } onEnter={ this._ensureLoggedin } />
-        </Route>
+        { this.routes }
       </Router>
     );
   }

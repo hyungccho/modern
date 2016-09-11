@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, hashHistory } from 'react-router';
+import { Link } from 'react-router';
 
 class SessionForm extends React.Component {
 	constructor(props){
@@ -10,16 +10,6 @@ class SessionForm extends React.Component {
 			password: ""
 		};
 		this.handleSubmit = this.handleSubmit.bind(this);
-	}
-
-	componentDidUpdate () {
-		this.redirectIfLoggedIn();
-	}
-
-	redirectIfLoggedIn () {
-		if (this.props.loggedIn) {
-			hashHistory.push("/");
-		}
 	}
 
 	update (field) {

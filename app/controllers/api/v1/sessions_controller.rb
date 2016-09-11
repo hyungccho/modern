@@ -11,7 +11,7 @@ module Api
           error! :unauthenticated, 'Invalid username/password combination'
         else
           login!(@account)
-          expose @account
+          expose Accounts::Personal::Serializer.new(@account).serializable_hash
         end
       end
 
@@ -20,7 +20,7 @@ module Api
 
         if @account
           logout!
-          expose @acount
+          expose basic_success_message
         else
           error! :invalid_version, 'Nobody is signed in!'
         end

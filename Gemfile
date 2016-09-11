@@ -29,6 +29,10 @@ gem 'active_model_serializers'
 gem 'rocket_pants'
 gem 'compass-rails'
 gem 'bootstrap-sass'
+gem 'dotenv-rails', :groups => [:development, :test]
+gem 'aws-sdk', '~> 2'
+gem 'jquery-ui-rails'
+gem 'jquery-fileupload-rails'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

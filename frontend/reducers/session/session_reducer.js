@@ -1,4 +1,7 @@
+// Actions
 import { SessionConstants } from 'actions/session/session_actions';
+
+// Plugins
 import merge from 'lodash/merge';
 
 const _nullAccount = Object.freeze({
@@ -12,7 +15,7 @@ const SessionReducer = (state = _nullAccount, action) => {
       const currentAccount = action.account.response;
       return merge({}, state, { currentAccount });
     case SessionConstants.LOGOUT:
-      return merge({}, state);
+      return merge({}, _nullAccount);
     case SessionConstants.RECEIVE_ERRORS:
       const errors = action.errors;
       return merge({}, state, { errors });

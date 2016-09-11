@@ -1,5 +1,9 @@
 import { connect } from 'react-redux';
+
+// Components
 import SessionForm from 'components/home/session/session_form';
+
+// Actions
 import { login, logout, signup } from 'actions/session/session_actions';
 
 
