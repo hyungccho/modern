@@ -8,6 +8,9 @@
 #  session_token   :string           not null
 #  type            :string
 #  username        :string
+#  first_name      :string
+#  last_name       :string
+#  image_url       :string
 #
 
 class Account < ActiveRecord::Base

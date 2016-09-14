@@ -1,8 +1,11 @@
-export const createBusiness = (business, success, error) => {
+export const createBusiness = (accountId, business, success, error) => {
   $.ajax({
     method: 'POST',
     url: '/api/v1/businesses',
-    data: business,
+    data: {
+      business: business,
+      account_id: accountId
+    },
     success,
     error
   });

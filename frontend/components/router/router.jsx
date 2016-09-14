@@ -5,9 +5,12 @@ import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 
 // Components
 import App from 'components/app';
-import Hero from 'components/home/hero';
-import SessionContainer from 'components/home/session/session_container';
-import HomeContainer from 'components/app/home_container';
+import Hero from 'components/hero/hero';
+import SessionContainer from 'components/session/session_container';
+import HomeContainer from 'components/app/home/home_container';
+
+// Plugins
+import isEmpty from 'lodash/isempty';
 
 class AppRouter extends React.Component {
   constructor (props) {
@@ -32,7 +35,7 @@ class AppRouter extends React.Component {
   
   _isLoggedIn () {
     const currentAccount = this.props.currentAccount;
-    return (!!currentAccount);
+    return (!isEmpty(currentAccount));
   }
 
   _ensureLoggedIn (nextState, replace) {

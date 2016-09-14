@@ -1,0 +1,73 @@
+div[data-notify='container'] {
+  width: 300px;
+}
+
+#business-create-modal {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 500px;
+  overflow-y: hidden;
+  
+  .modal-dialog {
+    margin: 0 auto;
+  }
+  
+  .modal-body {
+    .form-group > .control-label {
+      text-align: left;
+    }
+  }
+}
+
+#home-content {
+  position: relative;
+  
+  .no-businesses {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    
+    h4 {
+      opacity: 0.4;
+    }
+  }
+  
+  .business-panels {
+    .card {
+      .header {
+        hr {
+          margin: 10px 0 10px;
+        }
+      }
+      
+      .content {
+        .row { padding-top: 10px; }
+        i { font-size: 20px; }
+        p { font-size: 14px; }
+        
+        .info {
+          i {
+            color: #7A9E9F;
+          }
+        }
+        
+        .danger {
+          i {
+            color: #d9534f;
+          }
+        }
+      }
+      
+      .card-footer {
+        i {
+          font-size: 10px;
+          margin-left: 5px;
+        }
+      }
+    }
+  }
+}

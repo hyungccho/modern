@@ -7,16 +7,19 @@ import configureStore from 'store';
 // Components
 import Root from 'components/root'
 
+// Plugins
+import isEmpty from 'lodash/isempty';
+
 
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('root');
   let store;
   
-  if (window.currentAccount) {
+  if (isEmpty(window.currentAccount)) {
+    store = configureStore();
+  } else {
     const initialState = { session: { currentAccount: window.currentAccount } };
     store = configureStore(initialState);
-  } else {
-    store = configureStore();
   }
   
   window.Store = store;

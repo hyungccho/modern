@@ -29,9 +29,7 @@ module Api
       end
 
       def destroy
-        @business.is_deleted = true
-
-        if @business.save
+        if @business.destroy
           expose basic_success_message
         else
           error! :unprocessable_entity,

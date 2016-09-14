@@ -1,14 +1,17 @@
 import { connect } from 'react-redux';
 
 // Components
-import SessionForm from 'components/home/session/session_form';
+import SessionForm from 'components/session/session_form';
 
 // Actions
 import { login, logout, signup } from 'actions/session/session_actions';
 
+// Plugins
+import isEmpty from 'lodash/isempty';
+
 
 const mapStateToProps = state => ({
-  loggedIn: Boolean(state.session.currentAccount),
+  loggedIn: Boolean(!isEmpty(state.session.currentAccount)),
   errors: state.session.errors ? state.session.errors : []
 });
 

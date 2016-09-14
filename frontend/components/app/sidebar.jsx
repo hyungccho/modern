@@ -1,7 +1,6 @@
 import React from 'react';
 
 class Sidebar extends React.Component {
-  // @todo: Fix Hardcoded Name field
   render () {
     return (
       <div className='sidebar' data-background-color='brown'>
@@ -15,7 +14,10 @@ class Sidebar extends React.Component {
           <div className='user'>
             <div className='photo'></div>
             <div className='info'>
-              <p>Jeremy Cho</p>
+              <p>
+                { `${this.props.currentAccount.first_name} 
+                   ${this.props.currentAccount.last_name}` } 
+              </p>
             </div>
           </div>
         </div>

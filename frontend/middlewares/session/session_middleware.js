@@ -27,7 +27,6 @@ const SessionMiddleware = ({ getState, dispatch }) => next => action => {
     case SessionConstants.LOGOUT:
       logout(() => {
         next(action);
-        browserHistory.push('/');
       });
       break;
     case SessionConstants.SIGNUP:

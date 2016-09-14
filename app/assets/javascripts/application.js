@@ -15,4 +15,6 @@
 //= require bootstrap-sprockets
 //= require jquery-ui
 //= require jquery-fileupload
+//= require bootstrap-notify.min
+//= require bootstrap-select
 //= require_tree .

@@ -40,6 +40,17 @@ module Api
       def basic_failure_message
         { success: false }
       end
+
+      def load_lob
+        # @todo Configure Lob on their dashboard for LIVE key
+        if Rails.env == 'development'
+          Lob.api_key = ENV['TEST_LOB_API_KEY']
+        else
+          Lob.api_key = ENV['LIVE_LOB_API_KEY']
+        end
+
+        @lob = Lob.load
+      end
     end
   end
 end

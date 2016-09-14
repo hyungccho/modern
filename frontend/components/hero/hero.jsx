@@ -2,7 +2,7 @@ import React from 'react';
 import { withRouter } from 'react-router';
 
 // Components
-import SessionContainer from 'components/home/session/session_form'
+import SessionContainer from 'components/session/session_form'
 
 class Hero extends React.Component {
   constructor (props) {
