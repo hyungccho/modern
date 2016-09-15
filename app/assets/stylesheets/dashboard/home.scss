@@ -8,7 +8,6 @@ div[data-notify='container'] {
   top: 50%;
   transform: translate(-50%, -50%);
   width: 600px;
-  height: 500px;
   overflow-y: hidden;
   
   .modal-dialog {
@@ -18,6 +17,11 @@ div[data-notify='container'] {
   .modal-body {
     .form-group > .control-label {
       text-align: left;
+    }
+    
+    .error {
+      color: #EB5E28;
+      font-size: 12px;
     }
   }
 }

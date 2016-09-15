@@ -48,7 +48,7 @@ class FormValidation {
   
   checkAllErrors (formState) {
     for (var key of Object.keys(this.validations)) {
-      this.validateField(key, this.validations[key])
+      this.validateField(key, formState[key]);
     }
   }
   

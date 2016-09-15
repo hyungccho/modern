@@ -20,6 +20,7 @@ class BusinessCreateModal extends React.Component {
       country: 'United States',
       state: 'Alabama',
       city: '',
+      address: '',
       zip: '',
       errors: {}
     }
@@ -31,6 +32,41 @@ class BusinessCreateModal extends React.Component {
         fn: (value) => {
           if (value == '') {
             return 'Enter a business name';
+          }
+        }
+      },
+      country: {
+        fn: (value) => {
+          if (value == '') {
+            return 'Select a country';
+          }
+        }
+      },
+      state: {
+        fn: (value) => {
+          if (value == '') {
+            return 'Select a state';
+          }
+        }
+      },
+      city: {
+        fn: (value) => {
+          if (value == '') {
+            return 'Enter a city';
+          }
+        }
+      },
+      address: {
+        fn: (value) => {
+          if (value == '') {
+            return 'Enter an address';
+          }
+        }
+      },
+      zip: {
+        fn: (value) => {
+          if (value == '') {
+            return 'Enter a zipcode';
           }
         }
       }
@@ -52,6 +88,10 @@ class BusinessCreateModal extends React.Component {
       $('.selectpicker').selectpicker('refresh');
     }, this));
     
+    $('#business-create-modal').on('shown.bs.modal', bind((e) => {
+      $('#business-create-modal').css('height', $('.modal-dialog').height())
+    }, this));
+    
     $('.selectpicker').selectpicker({
       dropupAuto: false,
       style: 'btn-primary',
@@ -61,6 +101,10 @@ class BusinessCreateModal extends React.Component {
     $('.selectpicker').on('change', (e) => {
       this.setState({ [e.target.dataset.value]: e.target.value });
     });
+  }
+  
+  componentDidUpdate () {
+    $('#business-create-modal').css('height', $('.modal-dialog').height())
   }
   
   buildHeader () {
@@ -98,6 +142,13 @@ class BusinessCreateModal extends React.Component {
                    onChange={ this.update(className) }
                    onBlur={ this.validateField(className) }
                    value={ this.state[className] } />
+            { 
+              (() => {
+                if (this.state.errors[className]) {
+                 return <span className='error'>{ this.state.errors[className] }</span>;
+                }
+              })()
+            }
           </div>
         </div>
       </fieldset>
@@ -177,11 +228,11 @@ class BusinessCreateModal extends React.Component {
             <div className='modal-body'>
               <div className='container-fluid'>
                 <form className='form-horizontal'>
-                  { this.buildFieldHeader() }
                   { this.buildFieldTextInput('name', 'Business Name:') }
                   { this.buildFieldSelectInput('country', 'Country:', countryOptions) }
                   { this.buildFieldSelectInput('state', 'State:', stateOptions) }
                   { this.buildFieldTextInput('city', 'City:') }
+                  { this.buildFieldTextInput('address', 'Address:') }
                   { this.buildFieldTextInput('zip', 'Zip:') }
                 </form>
               </div>
