@@ -1,7 +1,6 @@
 // Plugins
 import values from 'lodash/values';
 import filter from 'lodash/filter';
-import forEach from 'lodash/foreach';
 import unset from 'lodash/unset';
 
 class FormValidation {
@@ -48,9 +47,9 @@ class FormValidation {
   }
   
   checkAllErrors (formState) {
-    forEach(this.validations, (value, key) => {
-      this.validateField(value, key);
-    });
+    for (var key of Object.keys(this.validations)) {
+      this.validateField(key, this.validations[key])
+    }
   }
   
   clearErrors () {
