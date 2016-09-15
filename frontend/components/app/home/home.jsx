@@ -14,6 +14,7 @@ import isEmpty from 'lodash/isEmpty';
 const navSections = {
   header: {
     // @todo: FIX THIS
+    // @todo: Fix Hardcore on Notifcation First Option
     name: 'Index'
   },
   sections: [
@@ -30,7 +31,9 @@ const navSections = {
         {
           type: 'dropdown',
           header: { icon: 'ti-bell', text: '', animation: 'btn-rotate' },
-          options: []
+          options: [
+            { icon: 'fa fa-file', text: 'Ding dong! You received a file! It says: Mujin is a fag fuck' }
+          ]
         },
         {
           type: 'dropdown',
