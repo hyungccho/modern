@@ -18,12 +18,14 @@
 
 // SCSS Specific
 @import 'fonts';
+@import "font-awesome";
 
 // Paper Theme
 @import 'paper-dashboard', 'themify-icons';
 
 // Custom Styles
 @import 'dashboard/home', 'dashboard/nav', 'dashboard/sidebar';
+
 
 
  
