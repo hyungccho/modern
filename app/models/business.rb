@@ -9,11 +9,11 @@
 #  city       :string
 #  zip        :string
 #  address    :string
-#  is_deleted :boolean          default(FALSE)
 #  account_id :integer          not null
 #  created_at :datetime
 #  updated_at :datetime
 #
+
 class Business < ActiveRecord::Base
   validates :name, presence: true
 

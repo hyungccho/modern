@@ -7,7 +7,7 @@ import { countryOptions, stateOptions } from 'constants/location_options';
 import merge from 'lodash/merge';
 import bind from 'lodash/bind';
 import classNames from 'classnames';
-
+import isEmpty from 'lodash/isempty';
 
 // Mixins
 import FormValidation from 'mixins/form_validation';
@@ -121,7 +121,9 @@ class BusinessCreateModal extends React.Component {
           <div className='col-sm-5'>
             <select className='selectpicker'
                     onBlur={ this.validateField(className) }
-                    data-value={ className }>
+                    data-value={ className }
+                    readOnly='true'
+                    value={ this.state[className] }>
               {
                 options.map((optionName, index) => {
                   return <option key={ index } value={ optionName }>{ optionName }</option>;
@@ -135,12 +137,16 @@ class BusinessCreateModal extends React.Component {
   }
   
   buildFooter () {
+    var submitClass = classNames('btn btn-fill create-business', {
+      'disabled': !isEmpty(this.state.errors),
+      'btn-success': isEmpty(this.state.errors)
+    });
+    
     return (
       <div className='modal-footer'>
         <button type="button" 
-                className="btn btn-success btn-fill create-business"
-                onClick={ this.handleSubmit }
-                data-dismiss='modal'>Create</button>
+                className={ submitClass }
+                onClick={ this.handleSubmit }>Create</button>
         <button type="button" className="btn btn-default" data-dismiss="modal">Close</button>
       </div>
     );
@@ -153,9 +159,10 @@ class BusinessCreateModal extends React.Component {
   }
   
   handleSubmit () {
-    if (this.formValidation.hasAnyErrors()) {
-      $("button.create-business").effect("shake");
+    if (this.formValidation.hasAnyErrors(this.state)) {
+      this.setState({ errors: this.formValidation.errors });
     } else {
+      $('#business-create-modal').hide();
       this.props.createBusiness(this.state);
     }
   }
