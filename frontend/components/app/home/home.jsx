@@ -9,7 +9,7 @@ import BusinessCreateModal from 'components/app/home/business_create_modal';
 
 // Plugins
 import find from 'lodash/find';
-import isEmpty from 'lodash/isempty';
+import isEmpty from 'lodash/isEmpty';
 
 const navSections = {
   header: {

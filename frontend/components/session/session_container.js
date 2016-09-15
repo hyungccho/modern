@@ -7,7 +7,7 @@ import SessionForm from 'components/session/session_form';
 import { login, logout, signup } from 'actions/session/session_actions';
 
 // Plugins
-import isEmpty from 'lodash/isempty';
+import isEmpty from 'lodash/isEmpty';
 
 
 const mapStateToProps = state => ({

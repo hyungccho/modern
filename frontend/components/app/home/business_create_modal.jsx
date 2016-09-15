@@ -7,7 +7,7 @@ import { countryOptions, stateOptions } from 'constants/location_options';
 import merge from 'lodash/merge';
 import bind from 'lodash/bind';
 import classNames from 'classnames';
-import isEmpty from 'lodash/isempty';
+import isEmpty from 'lodash/isEmpty';
 
 // Mixins
 import FormValidation from 'mixins/form_validation';

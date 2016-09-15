@@ -10,7 +10,7 @@ import SessionContainer from 'components/session/session_container';
 import HomeContainer from 'components/app/home/home_container';
 
 // Plugins
-import isEmpty from 'lodash/isempty';
+import isEmpty from 'lodash/isEmpty';
 
 class AppRouter extends React.Component {
   constructor (props) {

@@ -5,7 +5,7 @@ import BusinessCard from 'components/app/home/business_card';
 
 // Plugins
 import classNames from 'classnames';
-import isEmpty from 'lodash/isempty';
+import isEmpty from 'lodash/isEmpty';
 
 class BusinessPanels extends React.Component {
   renderBusinessCards () {

@@ -8,7 +8,7 @@ import configureStore from 'store';
 import Root from 'components/root'
 
 // Plugins
-import isEmpty from 'lodash/isempty';
+import isEmpty from 'lodash/isEmpty';
 
 
 document.addEventListener('DOMContentLoaded', () => {
